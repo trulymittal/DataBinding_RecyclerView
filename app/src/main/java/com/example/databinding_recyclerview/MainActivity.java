@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
     private List<User> getUserList() {
         List<User> userList = new ArrayList<>();
         userList.add(new User("Jhon Doe", 70, true, "https://picsum.photos/id/237/200"));
-        userList.add(new User("Mary World", 70, true, "https://picsum.photos/id/238/200"));
-        userList.add(new User("Hey baby", 70, false, "https://picsum.photos/id/239/200"));
-        userList.add(new User("Jessica", 70, true, "https://picsum.photos/id/240/200"));
-        userList.add(new User("Samantha", 70, false, "https://picsum.photos/id/241/200"));
+        userList.add(new User("Charles Dickens", 70, true, "https://picsum.photos/id/238/200"));
+        userList.add(new User("Harry Potter", 70, false, "https://picsum.photos/id/239/200"));
+        userList.add(new User("Jessica Simpson", 70, true, "https://picsum.photos/id/240/200"));
+        userList.add(new User("Paul Addams", 70, false, "https://picsum.photos/id/241/200"));
         return userList;
     }
 }
