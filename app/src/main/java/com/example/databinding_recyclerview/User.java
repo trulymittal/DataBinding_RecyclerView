@@ -1,5 +1,11 @@
 package com.example.databinding_recyclerview;
 
+import android.widget.ImageView;
+
+import androidx.databinding.BindingAdapter;
+
+import com.bumptech.glide.Glide;
+
 public class User {
 
     private String name;
@@ -54,5 +60,12 @@ public class User {
                 ", active=" + active +
                 ", imageUrl='" + imageUrl + '\'' +
                 '}';
+    }
+
+    @BindingAdapter("android:loadImage")
+    public static void loadImage(ImageView imageView, String imageUrl) {
+        Glide.with(imageView)
+                .load(imageUrl)
+                .into(imageView);
     }
 }
