@@ -11,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.databinding_recyclerview.databinding.ProductRowBinding;
 
 import java.util.List;
@@ -19,6 +18,7 @@ import java.util.List;
 public class UserRecyclerAdapter extends RecyclerView.Adapter<UserRecyclerAdapter.UserViewHolder> {
 
     private static final String TAG = "UserRecyclerAdapter";
+
     List<User> userList;
 
     public UserRecyclerAdapter(List<User> userList) {
@@ -37,12 +37,7 @@ public class UserRecyclerAdapter extends RecyclerView.Adapter<UserRecyclerAdapte
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         final User user = userList.get(position);
         holder.productRowBinding.setUser(user);
-        holder.productRowBinding.activeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick: " + user.toString());
-            }
-        });
+        holder.productRowBinding.executePendingBindings();
     }
 
     @Override
@@ -57,6 +52,13 @@ public class UserRecyclerAdapter extends RecyclerView.Adapter<UserRecyclerAdapte
         public UserViewHolder(@NonNull ProductRowBinding productRowBinding) {
             super(productRowBinding.getRoot());
             this.productRowBinding = productRowBinding;
+
+            productRowBinding.activeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d(TAG, "onClick: " + userList.get(getAdapterPosition()));
+                }
+            });
         }
     }
 }
